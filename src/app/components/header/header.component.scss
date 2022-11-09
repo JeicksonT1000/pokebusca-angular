@@ -1,0 +1,25 @@
+header {
+  background-color: #020202;
+  height: 80px;
+
+  ul {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+
+    li {
+      &:last-child {
+        display: flex;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
