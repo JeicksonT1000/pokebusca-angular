@@ -1,0 +1,21 @@
+.line {
+  padding: 16px 0;
+  border-bottom: 1px solid #bdbdbd;
+
+  .column {
+    img {
+      height: 100px;
+      width: 100px;
+      border: 1px solid #565656;
+      border-radius: 4px;
+    }
+
+    p {
+      color: #666666;
+    }
+
+    &:last-child {
+      padding-left: 16px;
+    }
+  }
+}
