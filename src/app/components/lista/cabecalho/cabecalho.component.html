@@ -1,10 +1,16 @@
 <div class="line">
   <div class="column">
-    <h1>Fase do teste prático Front-end</h1>
-    <h2>Pokebusca</h2>
+    <h1>{{ titulo }}</h1>
+    <h2>{{ subtitulo }}</h2>
   </div>
   <div class="column">
-    <input type="text" placeholder="Buscar" />
+    <input
+      type="text"
+      placeholder="Buscar"
+      name="busca"
+      [(ngModel)]="termoBusca"
+      (ngModelChange)="buscarPokemon()"
+    />
     <div>
       <span class="material-symbols-outlined"> search </span>
     </div>

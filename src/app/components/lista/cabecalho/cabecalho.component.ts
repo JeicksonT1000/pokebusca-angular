@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-cabecalho',
   templateUrl: './cabecalho.component.html',
-  styleUrls: ['./cabecalho.component.scss']
+  styleUrls: ['./cabecalho.component.scss'],
 })
 export class CabecalhoComponent implements OnInit {
+  titulo: string = 'Fase do teste prático Front-end';
+  subtitulo: string = 'Pokebusca';
+  termoBusca: string = '';
 
-  constructor() { }
-
-  ngOnInit(): void {
+  buscarPokemon() {
+    // Api
+    console.log(this.termoBusca);
   }
 
+  ngOnInit(): void {
+    console.log('Inicio');
+  }
 }
