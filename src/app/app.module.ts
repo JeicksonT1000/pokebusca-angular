@@ -9,6 +9,7 @@ import { ListaComponent } from './components/lista/lista.component';
 import { ContadorComponent } from './components/lista/contador/contador.component';
 import { ItemComponent } from './components/lista/item/item.component';
 import { PaginacaoComponent } from './components/lista/paginacao/paginacao.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { PaginacaoComponent } from './components/lista/paginacao/paginacao.compo
     ItemComponent,
     PaginacaoComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
