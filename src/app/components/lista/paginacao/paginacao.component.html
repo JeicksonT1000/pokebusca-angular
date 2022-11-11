@@ -1,17 +1,25 @@
 <div class="line">
   <ol>
     <li>
-      <span class="material-symbols-outlined"> first_page </span>
+      <span class="material-symbols-outlined" (click)="primeira()">
+        first_page
+      </span>
     </li>
     <li>
-      <span class="material-symbols-outlined"> keyboard_arrow_left </span>
+      <span class="material-symbols-outlined" (click)="voltar()">
+        keyboard_arrow_left
+      </span>
     </li>
     <li>
-      <span class="material-symbols-outlined"> keyboard_arrow_right </span>
+      <span class="material-symbols-outlined" (click)="avancar()">
+        keyboard_arrow_right
+      </span>
     </li>
     <li>
-      <span class="material-symbols-outlined"> last_page </span>
+      <span class="material-symbols-outlined" (click)="ultima()">
+        last_page
+      </span>
     </li>
   </ol>
-  <strong>1 de 4 páginas</strong>
+  <strong>{{ pagina }} de {{ total }} páginas</strong>
 </div>
