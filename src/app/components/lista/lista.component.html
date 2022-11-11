@@ -1,8 +1,28 @@
-<app-cabecalho></app-cabecalho>
-<app-contador></app-contador>
-<app-item></app-item>
-<app-item></app-item>
-<app-item></app-item>
-<app-item></app-item>
-<app-item></app-item>
-<app-paginacao></app-paginacao>
+<app-cabecalho (eventBuscar)="onEventBuscar($event)"></app-cabecalho>
+
+<app-contador
+  [totalItens]="totalItens"
+  [limiteItens]="limiteItens"
+></app-contador>
+
+<div *ngIf="itemBusca.nome">
+  <app-item
+    [id]="itemBusca.id"
+    [nome]="itemBusca.nome"
+    [urlImg]="itemBusca.imagem"
+  ></app-item>
+</div>
+
+<div *ngIf="!itemBusca.nome">
+  <div *ngFor="let item of listaPokemons; index as i">
+    <div *ngIf="i + 1 > itemControle - limiteItens && i + 1 <= itemControle">
+      <app-item
+        [nome]="item.nome"
+        [id]="item.id"
+        [urlImg]="item.imagem"
+      ></app-item>
+    </div>
+  </div>
+</div>
+
+<app-paginacao (navPage)="onNavPage($event)"></app-paginacao>
