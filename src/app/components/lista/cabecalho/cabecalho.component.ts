@@ -15,19 +15,23 @@ export class CabecalhoComponent {
   subtitulo: string = 'Pokebusca';
   termoBusca: string = '';
   itemEncontrado: boolean = false;
+  timeOutBusca: any = null;
 
-  async buscarPokemon() {
+  buscarPokemon() {
+    clearTimeout(this.timeOutBusca);
     if (this.termoBusca.length > 0) {
-      await this.api
-        .buscarPokemon(this.termoBusca)
-        .then((res) => {
-          this.eventBuscar.emit([res]);
-          this.itemEncontrado = true;
-        })
-        .catch(() => {
-          this.eventBuscar.emit([]);
-          this.itemEncontrado = false;
-        });
+      this.timeOutBusca = setTimeout(async () => {
+        await this.api
+          .buscarPokemon(this.termoBusca)
+          .then((res) => {
+            this.eventBuscar.emit([res]);
+            this.itemEncontrado = true;
+          })
+          .catch(() => {
+            this.eventBuscar.emit([]);
+            this.itemEncontrado = false;
+          });
+      }, 1000);
     } else {
       this.eventBuscar.emit([]);
       this.itemEncontrado = false;
