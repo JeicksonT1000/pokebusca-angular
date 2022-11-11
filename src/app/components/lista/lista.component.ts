@@ -10,12 +10,14 @@ export class ListaComponent implements OnInit {
   constructor(private api: ApiService) {}
 
   listaPokemons: Array<any> = [];
+  itensRender: Array<any> = [];
+
+  limiteItens: number = 5;
+
   // Controle de itens exibidos
   pagina: number = 1;
-  limiteItens: number = 5;
-  totalItens: number = 0;
+
   itemControle: number = this.pagina * this.limiteItens;
-  itemBusca: any = {};
 
   atualizaPagina(pagina: number) {
     this.pagina = pagina;
@@ -27,12 +29,23 @@ export class ListaComponent implements OnInit {
   }
 
   onEventBuscar(event: any) {
-    this.itemBusca = event;
+    console.log(event);
+    if (event.length > 0) {
+      this.itensRender = event;
+      console.log('l');
+    } else {
+      this.itensRender = this.listaPokemons;
+    }
   }
 
   async ngOnInit() {
-    await this.api.montaListaPokemons().then((res) => {
-      this.listaPokemons = res;
-    });
+    await this.api
+      .montaListaPokemons(20)
+      .then((res) => {
+        this.listaPokemons = res;
+      })
+      .then(() => {
+        this.itensRender = this.listaPokemons;
+      });
   }
 }
