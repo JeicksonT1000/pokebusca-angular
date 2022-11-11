@@ -27,9 +27,8 @@ export class ApiService {
   }
 
   // Monta um novo array com dados polidos
-  async montaListaPokemons(): Promise<object[]> {
-    const endPointLista =
-      'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20';
+  async montaListaPokemons(limiteItens: number): Promise<object[]> {
+    const endPointLista = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${limiteItens}`;
     const lista = await this.buscarListaPokemons(endPointLista);
     let listaAprimorada: Array<object> = [];
 
