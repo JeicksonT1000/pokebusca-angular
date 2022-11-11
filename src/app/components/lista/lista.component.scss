@@ -1,0 +1,11 @@
+main {
+  padding: 30px;
+  padding-bottom: 0;
+  margin-left: 60px;
+  background-color: white;
+
+  @media (max-width: 600px) {
+    margin: 0;
+    padding: 20px;
+  }
+}

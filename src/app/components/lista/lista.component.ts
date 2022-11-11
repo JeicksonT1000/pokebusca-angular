@@ -35,7 +35,7 @@ export class ListaComponent implements OnInit {
 
   async ngOnInit() {
     await this.api
-      .montaListaPokemons(20)
+      .montaListaPokemons(21)
       .then((res) => {
         this.listaPokemons = res;
       })

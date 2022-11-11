@@ -11,7 +11,7 @@ export class CabecalhoComponent {
 
   @Output() eventBuscar: EventEmitter<any> = new EventEmitter();
 
-  titulo: string = 'Fase do teste prático Front-end';
+  titulo: string = 'Fase teste prático Front_end';
   subtitulo: string = 'Pokebusca';
   termoBusca: string = '';
   itemEncontrado: boolean = false;
