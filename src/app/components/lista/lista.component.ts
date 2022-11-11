@@ -11,12 +11,8 @@ export class ListaComponent implements OnInit {
 
   listaPokemons: Array<any> = [];
   itensRender: Array<any> = [];
-
   limiteItens: number = 5;
-
-  // Controle de itens exibidos
   pagina: number = 1;
-
   itemControle: number = this.pagina * this.limiteItens;
 
   atualizaPagina(pagina: number) {
@@ -29,10 +25,9 @@ export class ListaComponent implements OnInit {
   }
 
   onEventBuscar(event: any) {
-    console.log(event);
     if (event.length > 0) {
       this.itensRender = event;
-      console.log('l');
+      this.atualizaPagina(1);
     } else {
       this.itensRender = this.listaPokemons;
     }

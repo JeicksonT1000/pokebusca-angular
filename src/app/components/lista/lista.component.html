@@ -7,7 +7,9 @@
   "
 ></app-contador>
 
+<!-- render itens -->
 <div *ngFor="let item of itensRender; index as i">
+  <!-- controle de itens exibidos -->
   <div *ngIf="i + 1 > itemControle - limiteItens && i + 1 <= itemControle">
     <app-item
       [nome]="item.nome"
@@ -17,4 +19,8 @@
   </div>
 </div>
 
-<app-paginacao (navPage)="onNavPage($event)"></app-paginacao>
+<app-paginacao
+  (navPage)="onNavPage($event)"
+  [totalItens]="itensRender.length"
+  [limiteItens]="limiteItens"
+></app-paginacao>

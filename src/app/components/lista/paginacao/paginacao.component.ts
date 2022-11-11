@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-paginacao',
@@ -11,7 +11,9 @@ export class PaginacaoComponent {
   @Output() navPage: EventEmitter<any> = new EventEmitter();
 
   pagina: number = 1;
-  total: number = 4;
+  total: number = 1;
+  @Input() totalItens: number = 0;
+  @Input() limiteItens: number = 0;
 
   voltar() {
     this.pagina > 1 ? this.pagina-- : null;
@@ -30,5 +32,16 @@ export class PaginacaoComponent {
   ultima() {
     this.pagina = this.total;
     this.navPage.emit(this.pagina);
+  }
+
+  qtPaginas() {
+    this.total = Math.floor(this.totalItens / this.limiteItens);
+    this.totalItens % this.limiteItens != 0
+      ? (this.total = this.total + 1)
+      : null;
+  }
+
+  ngDoCheck() {
+    this.qtPaginas();
   }
 }
