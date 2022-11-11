@@ -14,22 +14,23 @@ export class CabecalhoComponent {
   titulo: string = 'Fase do teste prático Front-end';
   subtitulo: string = 'Pokebusca';
   termoBusca: string = '';
-  itemBusca: any = {};
+  itemEncontrado: boolean = false;
 
   async buscarPokemon() {
     if (this.termoBusca.length > 0) {
       await this.api
         .buscarPokemon(this.termoBusca)
         .then((res) => {
-          this.itemBusca = res;
-          this.eventBuscar.emit(this.itemBusca);
+          this.eventBuscar.emit([res]);
+          this.itemEncontrado = true;
         })
         .catch(() => {
-          this.itemBusca = {};
-          this.eventBuscar.emit(this.itemBusca);
+          this.eventBuscar.emit([]);
+          this.itemEncontrado = false;
         });
     } else {
-      this.eventBuscar.emit({});
+      this.eventBuscar.emit([]);
+      this.itemEncontrado = false;
     }
   }
 }
