@@ -10,7 +10,7 @@ export class PaginacaoComponent {
 
   @Output() navPage: EventEmitter<any> = new EventEmitter();
 
-  pagina: number = 1;
+  @Input() pagina: number = 1;
   total: number = 1;
   @Input() totalItens: number = 0;
   @Input() limiteItens: number = 0;
